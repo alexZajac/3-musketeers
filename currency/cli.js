@@ -1,28 +1,28 @@
 #!/usr/bin/env node
 
-const currency = require('./');
-const ora = require('ora');
+const currency = require("./");
+const ora = require("ora");
 
 const argv = process.argv.slice(2);
 
-function help () {
+function help() {
   console.log(
     [
-      '',
-      '  Example',
-      '    ❯ currency 1650 dkk eur',
-      '    1650 DKK = 220.79486154 EUR',
-      '',
-      '  See README.md for detailed usage.'
-    ].join('\n')
+      "",
+      "  Example",
+      "    ❯ currency 1650 dkk eur",
+      "    1650 DKK = 220.79486154 EUR",
+      "",
+      "  See README.md for detailed usage."
+    ].join("\n")
   );
 }
 
-const spinner = ora('Fetching exchange data..');
+const spinner = ora("Fetching exchange data..");
 
-async function start (opts) {
+async function start(opts) {
   try {
-    const {amount, from, to} = opts;
+    const { amount, from, to } = opts;
     const result = await currency(opts);
 
     spinner.stop();
@@ -34,7 +34,7 @@ async function start (opts) {
   }
 }
 
-if (argv.indexOf('--help') !== - 1) {
+if (argv.indexOf("--help") !== -1) {
   help();
   process.exit(0);
 }
@@ -42,9 +42,9 @@ if (argv.indexOf('--help') !== - 1) {
 spinner.start();
 
 const opts = {
-  'amount': argv[0] || 1,
-  'from': (argv[1] || 'USD').toUpperCase(),
-  'to': (argv[2] || 'BTC').toUpperCase()
+  amount: argv[0] || 1,
+  from: (argv[1] || "USD").toUpperCase(),
+  to: (argv[2] || "EUR").toUpperCase()
 };
 
 start(opts);

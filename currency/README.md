@@ -60,4 +60,4 @@ The test suite is handled with [Jest](https://jestjs.io/en/).
 npm test
 ```
 
-The coverage report is available at [_./currency/coverage/index.html_](coverage/index.html)
+The coverage report is available on this [website](https://currency-coverage.netlify.com/).
